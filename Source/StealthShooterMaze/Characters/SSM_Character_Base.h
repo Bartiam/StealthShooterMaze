@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "../FunctionLibs/SSM_Types_Base.h"
+
+
 #include "SSM_Character_Base.generated.h"
 
 UCLASS()
@@ -12,7 +15,6 @@ class STEALTHSHOOTERMAZE_API ASSM_Character_Base : public ACharacter
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
 	ASSM_Character_Base();
 
 protected:
@@ -23,7 +25,23 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+private: // Private variables
+
+	
+
+public: // Getters and setters
+
+public: // Public variables
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Specifications")
+	FCharacterSpecification characterSpeedSettings;
+
+	UPROPERTY(EditDefaultsOnly)
+	class UCameraComponent* camera = nullptr;
+
+	UPROPERTY(EditDefaultsOnly)
+	class USpringArmComponent* springArm = nullptr;
+
+public: // Public functions
 
 };
