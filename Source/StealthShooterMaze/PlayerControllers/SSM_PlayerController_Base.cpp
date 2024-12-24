@@ -3,3 +3,6 @@
 
 #include "SSM_PlayerController_Base.h"
 
+#include "InputMappingContext.h"
+#include "InputAction.h"
+

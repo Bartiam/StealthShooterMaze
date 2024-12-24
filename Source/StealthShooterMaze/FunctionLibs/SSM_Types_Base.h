@@ -6,6 +6,16 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "SSM_Types_Base.generated.h"
 
+// State machine for movement character
+UENUM(BlueprintType)
+enum class EMovementState : uint8
+{
+	WALK UMETA(DisplayName = "Walk state"),
+	SIMPLE_RUN UMETA(DisplayName = "Simple run state"),
+	SPRINT UMETA(DisplayName = "Sprint state"),
+	CROUCH UMETA(DisplayName = "Crouch state"),
+	FAST_CROUCH UMETA(DisplayName = "Fast crouch state")
+};
 
 // A structure for storing character speed variables
 USTRUCT(BlueprintType)

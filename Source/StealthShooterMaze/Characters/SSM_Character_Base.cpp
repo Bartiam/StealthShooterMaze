@@ -34,7 +34,7 @@ ASSM_Character_Base::ASSM_Character_Base()
 
 	// Configure camera
 	camera = CreateDefaultSubobject<UCameraComponent>(FName(TEXT("Camera")));
-	camera->SetupAttachment(RootComponent);
+	camera->SetupAttachment(springArm);
 	camera->bUsePawnControlRotation = true;
 
 	Tags.Add(FName(TEXT("Player")));
