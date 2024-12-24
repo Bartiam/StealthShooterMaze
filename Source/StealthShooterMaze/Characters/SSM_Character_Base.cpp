@@ -12,7 +12,7 @@
 // Sets default values
 ASSM_Character_Base::ASSM_Character_Base()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame. 
 	PrimaryActorTick.bCanEverTick = true;
 
 	// Don't rotate when the controller rotates. Let that just affect the camera.
@@ -21,22 +21,23 @@ ASSM_Character_Base::ASSM_Character_Base()
 	bUseControllerRotationYaw = false;
 
 	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = true; 
-	GetCharacterMovement()->RotationRate = FRotator(0.f, 540.0f, 0.f);
+	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
+	GetCharacterMovement()->RotationRate = FRotator(0.f, 540.0f, 0.f); // ...at this rotation rate
 	GetCharacterMovement()->GetNavAgentPropertiesRef().bCanCrouch = true;
-	
-	// Configure spring arm
-	springArm = CreateDefaultSubobject<USpringArmComponent>(FName(TEXT("Spring Arm")));
+
+	// Create spring arm
+	springArm = CreateDefaultSubobject<USpringArmComponent>(FName("Spring Arm"));
 	springArm->SetupAttachment(RootComponent);
+	springArm->SetUsingAbsoluteRotation(true);
 	springArm->bDoCollisionTest = true;
 	springArm->bUsePawnControlRotation = true;
-	springArm->SetUsingAbsoluteLocation(true);
 
-	// Configure camera
-	camera = CreateDefaultSubobject<UCameraComponent>(FName(TEXT("Camera")));
+	// Create camera component
+	camera = CreateDefaultSubobject<UCameraComponent>(FName("Camera"));
 	camera->SetupAttachment(springArm);
 	camera->bUsePawnControlRotation = true;
 
+	// Set tag
 	Tags.Add(FName(TEXT("Player")));
 }
 

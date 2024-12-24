@@ -29,4 +29,26 @@ public: // Public variables
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Inputs")
 	class UInputMappingContext* mappingContext = nullptr;
+
+protected:
+
+	virtual void BeginPlay() override;
+
+	virtual void SetupInputComponent() override;
+
+private: // Private variables
+
+	FInputModeGameOnly inputGameOnly;
+
+	class ASSM_Character_Base* character = nullptr;
+
+public: // Setters and getters
+
+
+private: // Private functions
+
+	UFUNCTION()
+	void CharacterMovement(const FInputActionValue& value);
+	UFUNCTION()
+	void CharacterLook(const FInputActionValue& value);
 };
