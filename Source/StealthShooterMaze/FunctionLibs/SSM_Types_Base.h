@@ -19,7 +19,7 @@ enum class EMovementState : uint8
 
 // A structure for storing character speed variables
 USTRUCT(BlueprintType)
-struct FCharacterSpecification
+struct FCharacterSpeedSettings
 {
 	GENERATED_BODY()
 

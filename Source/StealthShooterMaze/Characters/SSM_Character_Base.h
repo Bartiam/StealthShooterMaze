@@ -33,8 +33,8 @@ public: // Getters and setters
 
 public: // Public variables
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Specifications")
-	FCharacterSpecification characterSpeedSettings;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Speed Settings")
+	FCharacterSpeedSettings characterSpeedSettings;
 
 	UPROPERTY(EditDefaultsOnly)
 	class UCameraComponent* camera = nullptr;
