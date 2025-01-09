@@ -6,6 +6,8 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "SSM_Types_Base.generated.h"
 
+class AGenerationRoom_Base;
+
 // State machine for movement character
 UENUM(BlueprintType)
 enum class EMovementState : uint8
@@ -35,6 +37,23 @@ struct FCharacterSpeedSettings
 	float crouchSpeed = 0.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float fastCrouchSpeed = 0.f;
+};
+
+USTRUCT(BlueprintType)
+struct FPMGSettings
+{
+	GENERATED_BODY()
+
+	
+};
+
+USTRUCT(BlueprintType)
+struct FPMGObjects
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<AGenerationRoom_Base> hallWayClass;
 };
 
 UCLASS()

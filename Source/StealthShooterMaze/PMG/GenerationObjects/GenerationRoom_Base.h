@@ -4,20 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "../FunctionLibs/SSM_Types_Base.h"
-
-#include "ProcedureMazeGeneration_Base.generated.h"
-
-class AGenerationRoom_Base;
+#include "GenerationRoom_Base.generated.h"
 
 UCLASS()
-class STEALTHSHOOTERMAZE_API AProcedureMazeGeneration_Base : public AActor
+class STEALTHSHOOTERMAZE_API AGenerationRoom_Base : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AProcedureMazeGeneration_Base();
+	AGenerationRoom_Base();
 
 protected:
 	// Called when the game starts or when spawned
@@ -27,13 +23,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-private: // Private functions
-
 public: // Public variables
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FPMGSettings QuantitySettings;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FPMGObjects ObjectSettings;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UStaticMeshComponent* floorMesh = nullptr;
 };
